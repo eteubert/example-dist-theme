@@ -1,0 +1,25 @@
+{
+  "name": "example-dist-theme",
+  "version": "1.0.0",
+  "description": "Example Theme for br-wordpress-gulp-dist",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eteubert/example-dist-theme.git"
+  },
+  "author": "Eric Teubert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eteubert/example-dist-theme/issues"
+  },
+  "homepage": "https://github.com/eteubert/example-dist-theme#readme",
+  "devDependencies": {
+    "github-config": "^1.0.2",
+    "gulp": "^3.9.1",
+    "run-sequence": "^1.2.2",
+    "br-wordpress-gulp-dist": "^1.0.1"
+  }
+}
