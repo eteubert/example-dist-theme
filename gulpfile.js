@@ -5,9 +5,9 @@ var dist = require('br-wordpress-gulp-dist');
 var path = require('path');
 
 var config = {
-    themeFile:  path.resolve('./style.css'),
-    manifest:   path.resolve('./package.json'),
-    token:      githubConfig().token
+    themeFile: path.resolve('./style.css'),
+    manifest:  path.resolve('./package.json'),
+    token:     githubConfig().token
 };
 
 gulp.task('release', function() {
@@ -15,7 +15,7 @@ gulp.task('release', function() {
         'bump-version',
         'update-theme-file-version',
         'commit-changes',
-        'tag-and-push',
+        'push',
         // add css/js processing here if necessary
         'make-asset',
         'deploy-asset'
@@ -31,4 +31,4 @@ gulp.task('deploy-asset', function() {
     return dist.deployReleaseAsset(config);
 });
 gulp.task('commit-changes', dist.commitAllChanges);
-gulp.task('tag-and-push', dist.tagAndPush);
+gulp.task('push', dist.push);
