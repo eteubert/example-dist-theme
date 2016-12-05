@@ -10,13 +10,11 @@ var config = {
     manifest:  path.resolve('./package.json'),
     token:     githubConfig().token,
     archive: {
-        name: 'the-theme'
+        // name: 'the-theme'
     }
 };
 
 var release = dist(config);
-
-console.log("release", release);
 
 gulp.task('release', function() {
     runSequence(
