@@ -1,6 +1,6 @@
 {
   "name": "example-dist-theme",
-  "version": "1.2.9",
+  "version": "1.2.10",
   "description": "Example Theme for br-wordpress-gulp-dist",
   "main": "index.js",
   "scripts": {
