@@ -8,8 +8,13 @@ var path = require('path');
 var config = {
     themeFile: path.resolve('./style.css'),
     manifest:  path.resolve('./package.json'),
-    token:     githubConfig().token
+    token:     githubConfig().token,
+    archive: {
+        name: 'the-theme'
+    }
 };
+
+var release = dist(config);
 
 gulp.task('release', function() {
     runSequence(
@@ -23,13 +28,9 @@ gulp.task('release', function() {
     );
 });
 
-gulp.task('bump-version', dist.bumpVersion);
-gulp.task('update-theme-file-version', function() {
-    return dist.updateWordPressThemeFile(config);
-});
-gulp.task('make-asset', dist.makeReleaseAsset);
-gulp.task('github-release-with-asset', function() {
-    return dist.deployReleaseAsset(config);
-});
-gulp.task('commit-changes', dist.commitAllChanges);
-gulp.task('push', dist.push);
+gulp.task('bump-version', release.bumpVersion);
+gulp.task('update-theme-file-version', release.updateWordPressThemeFile);
+gulp.task('make-asset', release.makeReleaseAsset);
+gulp.task('github-release-with-asset', release.deployReleaseAsset);
+gulp.task('commit-changes', release.commitAllChanges);
+gulp.task('push', release.push);
