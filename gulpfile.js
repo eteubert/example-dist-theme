@@ -1,7 +1,8 @@
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
 var githubConfig = require('github-config');
-var dist = require('br-wordpress-gulp-dist');
+var dist = require('/Users/ericteubert/code/br-wordpress-gulp-dist');
+// var dist = require('br-wordpress-gulp-dist');
 var path = require('path');
 
 var config = {
@@ -18,7 +19,7 @@ gulp.task('release', function() {
         'push',
         // add css/js processing here if necessary
         'make-asset',
-        'deploy-asset'
+        'github-release-with-asset'
     );
 });
 
@@ -27,7 +28,7 @@ gulp.task('update-theme-file-version', function() {
     return dist.updateWordPressThemeFile(config);
 });
 gulp.task('make-asset', dist.makeReleaseAsset);
-gulp.task('deploy-asset', function() {
+gulp.task('github-release-with-asset', function() {
     return dist.deployReleaseAsset(config);
 });
 gulp.task('commit-changes', dist.commitAllChanges);
