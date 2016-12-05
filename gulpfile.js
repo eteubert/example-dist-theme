@@ -16,6 +16,8 @@ var config = {
 
 var release = dist(config);
 
+console.log("release", release);
+
 gulp.task('release', function() {
     runSequence(
         'bump-version',
